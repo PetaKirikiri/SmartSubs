@@ -1,0 +1,131 @@
+/* Overlay container - fixed sizing, centered, scrollable */
+#smart-subs-overlay {
+  position: fixed !important;
+  bottom: 200px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 100% !important;
+  max-width: 1100px !important;
+  max-height: calc(100vh - 220px) !important;
+  z-index: 2147483647 !important;
+  padding: 4px 8px !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  opacity: 1 !important;
+  overflow-y: auto !important;
+  border-radius: 2px !important;
+}
+
+#smart-subs-current {
+  display: flex !important;
+  width: 100% !important;
+}
+
+.subtitle-text-col {
+  flex: 1 !important;
+}
+
+/* NEW UI - SubtitleStagePanel is the parent container with light opacity background */
+/* IMPORTANT: Do NOT set opacity on this container - only background has opacity */
+.subtitle-stage-panel {
+  width: 100% !important;
+  background: rgba(0, 0, 0, 0.15) !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 8px !important;
+  /* NO opacity here - only background has opacity, children control their own opacity */
+  box-sizing: border-box !important;
+}
+
+/* Ensure TaskbarPane has no background - inherit from parent */
+.subtitle-stage-panel > div:first-child {
+  background: transparent !important;
+}
+
+.subtitle-stage-panel .stage-header {
+  color: #00BFFF !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+  margin-bottom: 8px !important;
+}
+
+/* Subtitle text - minimal CSS, styling primarily in SubtitleStagePanel.jsx inline styles */
+.subtitle-text {
+  /* Base styles - inline styles in component take precedence */
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.stage-indicator {
+  color: #00BFFF !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  opacity: 0.7 !important;
+  flex-shrink: 0 !important;
+}
+
+.subtitle-stage-panel .thai-input {
+  color: #00BFFF !important;
+  background: rgba(0, 0, 30, 0.8) !important;
+  border: 2px solid #00BFFF !important;
+}
+
+.subtitle-stage-panel button {
+  background: #00BFFF !important;
+  color: #000 !important;
+  border: 2px solid #00BFFF !important;
+}
+
+.subtitle-stage-panel button.secondary {
+  background: transparent !important;
+  color: #00BFFF !important;
+}
+
+.word-chip {
+  background: rgba(0, 191, 255, 0.2) !important;
+  color: #00BFFF !important;
+  border: 1px solid #00BFFF !important;
+}
+
+.word-span {
+  color: #00BFFF !important;
+  cursor: pointer !important;
+  text-decoration: underline !important;
+}
+
+/* Hide ALL old subtitle styles - AGGRESSIVE */
+.smart-subs-overlay,
+.smart-subs-label,
+.smart-subs-text,
+.smart-subs-edit,
+.smart-subs-input,
+.smart-subs-save,
+.smart-subs-controls,
+.smart-subs-header,
+.smart-subs-timer,
+.smart-subs-upload,
+.rightButtonsContainer,
+.leftButtonsContainer,
+.tableSelect,
+.timerDisplay,
+#smart-subs-main-content,
+#smart-subs-controls,
+#smart-subs-header,
+.smart-subs-prev,
+.smart-subs-next,
+.subtitle-prev-col,
+.subtitle-next-col {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Hide Netflix native captions - commented out to allow original subtitles to show */
+/* .player-timedtext,
+.player-timedtext-text-container {
+  display: none !important;
+} */
+
