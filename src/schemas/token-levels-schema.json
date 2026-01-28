@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Token Processing Levels Schema",
+  "description": "Source of truth for different token processing levels",
+  "type": "object",
+  "oneOf": [
+    {
+      "title": "Unprocessed Token",
+      "description": "Token before any processing - only has thaiScript",
+      "required": ["index", "thaiScript"],
+      "properties": {
+        "level": {
+          "const": "unprocessed"
+        },
+        "index": {
+          "type": "number"
+        },
+        "thaiScript": {
+          "type": "string"
+        },
+        "g2p": {
+          "type": "null"
+        },
+        "englishPhonetic": {
+          "type": "null"
+        }
+      }
+    },
+    {
+      "title": "G2P Only Token",
+      "description": "Token with G2P but no phonetics or senses",
+      "required": ["index", "thaiScript", "g2p"],
+      "properties": {
+        "level": {
+          "const": "g2p-only"
+        },
+        "index": {
+          "type": "number"
+        },
+        "thaiScript": {
+          "type": "string"
+        },
+        "g2p": {
+          "type": "string"
+        },
+        "englishPhonetic": {
+          "type": "null"
+        }
+      }
+    },
+    {
+      "title": "Phonetics Added Token",
+      "description": "Token with G2P and English phonetic",
+      "required": ["index", "thaiScript", "g2p", "englishPhonetic"],
+      "properties": {
+        "level": {
+          "const": "phonetics-added"
+        },
+        "index": {
+          "type": "number"
+        },
+        "thaiScript": {
+          "type": "string"
+        },
+        "g2p": {
+          "type": "string"
+        },
+        "englishPhonetic": {
+          "type": "string"
+        }
+      }
+    },
+    {
+      "title": "Senses Added Token",
+      "description": "Token with G2P, phonetics, and senses",
+      "required": ["index", "thaiScript", "g2p", "englishPhonetic"],
+      "properties": {
+        "level": {
+          "const": "senses-added"
+        },
+        "index": {
+          "type": "number"
+        },
+        "thaiScript": {
+          "type": "string"
+        },
+        "g2p": {
+          "type": "string"
+        },
+        "englishPhonetic": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

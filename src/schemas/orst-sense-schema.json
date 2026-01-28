@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ORST Sense Schema",
+  "description": "Source of truth for raw ORST dictionary sense structure (scraped from ORST)",
+  "type": "object",
+  "properties": {
+    "index": {
+      "type": "number",
+      "description": "Sense index in array"
+    },
+    "selected": {
+      "type": "boolean",
+      "description": "Whether this sense is selected for the token",
+      "default": false
+    },
+    "thaiWord": {
+      "type": "string",
+      "description": "Thai word (may contain comma-separated values)"
+    },
+    "senseNumber": {
+      "type": "string",
+      "description": "Sense number (e.g., '1', '2')"
+    },
+    "pos": {
+      "type": "string",
+      "description": "Part of speech (Thai abbreviation)"
+    },
+    "definition": {
+      "type": "string",
+      "description": "ORST definition field (Thai definition)"
+    },
+    "source": {
+      "type": "string",
+      "description": "Source of sense data",
+      "default": "ORST"
+    },
+    "normalized": {
+      "type": "boolean",
+      "description": "Whether sense has been normalized",
+      "default": false
+    }
+  },
+  "required": ["thaiWord"],
+  "additionalProperties": true
+}

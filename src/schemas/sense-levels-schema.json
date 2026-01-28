@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Sense Processing Levels Schema",
+  "description": "Source of truth for different sense processing levels",
+  "type": "object",
+  "oneOf": [
+    {
+      "title": "Raw ORST Sense",
+      "description": "Raw sense scraped from ORST dictionary - not normalized",
+      "properties": {
+        "level": {
+          "const": "raw-orst"
+        },
+        "normalized": {
+          "const": false
+        },
+        "definition": {
+          "type": "string"
+        },
+        "english": {
+          "type": "string"
+        },
+        "pos": {
+          "type": "string"
+        }
+      },
+      "required": ["normalized"]
+    },
+    {
+      "title": "Normalized Sense",
+      "description": "Sense normalized to standard format with descriptionEnglish",
+      "properties": {
+        "level": {
+          "const": "normalized"
+        },
+        "normalized": {
+          "const": true
+        },
+        "descriptionEnglish": {
+          "type": "string"
+        },
+        "descriptionThai": {
+          "type": "string"
+        },
+        "meaningThai": {
+          "type": "string"
+        },
+        "meaningEnglish": {
+          "type": "string"
+        },
+        "posEnglish": {
+          "type": "string"
+        },
+        "normalizedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["normalized", "descriptionEnglish"]
+    },
+    {
+      "title": "Selected Sense",
+      "description": "Normalized sense that has been selected for a token",
+      "properties": {
+        "level": {
+          "const": "selected"
+        },
+        "normalized": {
+          "const": true
+        },
+        "selected": {
+          "const": true
+        },
+        "descriptionEnglish": {
+          "type": "string"
+        }
+      },
+      "required": ["normalized", "selected", "descriptionEnglish"]
+    },
+    {
+      "title": "Sense with Metadata",
+      "description": "Normalized sense with full metadata (confidence, source, etc.)",
+      "properties": {
+        "level": {
+          "const": "with-metadata"
+        },
+        "normalized": {
+          "const": true
+        },
+        "descriptionEnglish": {
+          "type": "string"
+        },
+        "normalizedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "normalizationVersion": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "source": {
+          "type": "string"
+        },
+        "originalData": {
+          "type": "object"
+        }
+      },
+      "required": ["normalized", "descriptionEnglish", "normalizedAt"]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "description": "Subtitle integrity report checklist structure - tracks data fields filled during processing",
+  "structure": {
+    "subtitleId": "string - Subtitle identifier (format: mediaId-index)",
+    "checklist": [
+      {
+        "key": "string - Field name",
+        "value": "any - Actual value from subtitle data (null if skipped)",
+        "sourceFile": "string - Responsible file path",
+        "status": "string - 'processed' if value exists and matches structure, 'skipped' if missing/null/undefined/empty"
+      }
+    ]
+  },
+  "fieldOrder": {
+    "minimal": [
+      {
+        "key": "thai",
+        "value": "นกอีกากำลังบิน",
+        "sourceFile": "01_import-subtitles/helpers/parse-vtt.js"
+      },
+      {
+        "key": "english",
+        "value": "The crow is flying",
+        "sourceFile": "01_import-subtitles/helpers/parse-vtt.js"
+      },
+      {
+        "key": "startSecThai",
+        "value": 12.5,
+        "sourceFile": "01_import-subtitles/helpers/parse-vtt.js"
+      },
+      {
+        "key": "endSecThai",
+        "value": 15.2,
+        "sourceFile": "01_import-subtitles/helpers/parse-vtt.js"
+      },
+      {
+        "key": "startSecEng",
+        "value": 12.5,
+        "sourceFile": "01_import-subtitles/helpers/parse-vtt.js"
+      },
+      {
+        "key": "endSecEng",
+        "value": 15.2,
+        "sourceFile": "01_import-subtitles/helpers/parse-vtt.js"
+      },
+      {
+        "key": "wordReferenceIdsThai",
+        "value": ["กา", "อีกา:0"],
+        "sourceFile": "03_process/helpers/02_tokenization/ai4thai-tokenizer.js"
+      },
+      {
+        "key": "wordReferenceIdsEng",
+        "value": ["crow", "bird"],
+        "sourceFile": "03_process/helpers/02_tokenization/english-tokenizer.js"
+      }
+    ],
+    "skinny": [
+      {
+        "key": "thai",
+        "value": "นกอีกากำลังบิน",
+        "sourceFile": "01_import-subtitles/helpers/parse-vtt.js"
+      },
+      {
+        "key": "english",
+        "value": "The crow is flying",
+        "sourceFile": "01_import-subtitles/helpers/parse-vtt.js"
+      },
+      {
+        "key": "startSecThai",
+        "value": 12.5,
+        "sourceFile": "01_import-subtitles/helpers/parse-vtt.js"
+      },
+      {
+        "key": "endSecThai",
+        "value": 15.2,
+        "sourceFile": "01_import-subtitles/helpers/parse-vtt.js"
+      },
+      {
+        "key": "startSecEng",
+        "value": 12.5,
+        "sourceFile": "01_import-subtitles/helpers/parse-vtt.js"
+      },
+      {
+        "key": "endSecEng",
+        "value": 15.2,
+        "sourceFile": "01_import-subtitles/helpers/parse-vtt.js"
+      },
+      {
+        "key": "wordReferenceIdsThai",
+        "value": ["กา", "อีกา:0"],
+        "sourceFile": "03_process/helpers/02_tokenization/ai4thai-tokenizer.js"
+      },
+      {
+        "key": "wordReferenceIdsEng",
+        "value": ["crow", "bird"],
+        "sourceFile": "03_process/helpers/02_tokenization/english-tokenizer.js"
+      },
+      {
+        "key": "wordReferenceIdsEng sense indices",
+        "value": ["crow:0", "bird:1"],
+        "sourceFile": "03_process/helpers/04_matching/gpt-match-words.js"
+      },
+      {
+        "key": "smartSubsRefs",
+        "value": ["70116061-1", "70116061-2"],
+        "sourceFile": "03_process/helpers/05_references/smartsubsrefs-builder.js"
+      },
+      {
+        "key": "matchedWords",
+        "value": [{"thaiWord": "กา", "englishWord": "crow", "confidence": 95, "key": "70116061-1-0"}],
+        "sourceFile": "03_save-subtitles/save-word-operations.js"
+      }
+    ],
+    "fat": {
+      "word": [
+        {
+          "key": "g2p",
+          "value": "k-aa0",
+          "sourceFile": "03_process/helpers/03_phonetics/ai4thai-g2p.js"
+        },
+        {
+          "key": "englishPhonetic",
+          "value": "kaa",
+          "sourceFile": "03_process/helpers/03_phonetics/phonetic-parser.js"
+        }
+      ],
+      "sense": [
+        {
+          "key": "sensesOrst",
+          "value": [{"thaiWord": "กา", "definition": "ชื่อนกขนาดกลางชนิด Corvus macrorhynchos Wagler...", "english": "", "pos": "น.", "normalized": false}],
+          "sourceFile": "03_process/helpers/06_dictionary/06a_orst/orst.js"
+        },
+        {
+          "key": "sensesNormalized",
+          "value": [{"thaiWord": "กา", "descriptionEnglish": "A medium-sized bird with a large beak and black body", "descriptionThai": "นกขนาดกลาง ปากใหญ่ ตัวสีดำ", "normalized": true, "normalizedAt": "2026-01-16T20:53:05.703Z"}],
+          "sourceFile": "03_process/helpers/07_normalize/gpt-normalize-senses.js"
+        }
+      ],
+      "senseEng": [
+        {
+          "key": "sensesEng",
+          "value": [{"thaiWord": "crow", "definition": "...", "pos": "noun"}],
+          "sourceFile": "03_process/helpers/06_dictionary/06a_orst/orst.js"
+        }
+      ]
+    }
+  }
+}

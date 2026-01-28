@@ -1,0 +1,57 @@
+{
+  "id": "test-mediaId-0",
+  "startSecThai": 0.0,
+  "endSecThai": 5.0,
+  "startSecEng": null,
+  "endSecEng": null,
+  "thai": "รถ",
+  "english": "",
+  "wordReferenceIdsThai": ["รถ:0"],
+  "wordReferenceIdsEng": [],
+  "tokens": {
+    "display": [
+      {
+        "index": 0,
+        "thaiScript": "รถ",
+        "g2p": "r-@@4-t",
+        "englishPhonetic": "rot"
+      }
+    ],
+    "senses": [
+      {
+        "index": 0,
+        "senses": [
+          {
+            "id": 1,
+            "index": 1,
+            "selected": true,
+            "thaiWord": "รถ",
+            "senseNumber": 1,
+            "pos": "น.",
+            "posEnglish": "noun",
+            "meaningThai": "ยานพาหนะ",
+            "meaningEnglish": "vehicle",
+            "descriptionThai": "ยานพาหนะ",
+            "descriptionEnglish": "vehicle",
+            "notesThai": "",
+            "notesEnglish": "",
+            "source": "orst",
+            "normalized": true,
+            "normalizedAt": "2024-01-01T00:00:00.000Z",
+            "normalizationVersion": "1.0",
+            "confidence": 95,
+            "originalData": {
+              "thaiWord": "รถ",
+              "senseNumber": 1,
+              "pos": "น.",
+              "meaningThai": "ยานพาหนะ",
+              "meaningEnglish": "vehicle"
+            }
+          }
+        ]
+      }
+    ],
+    "displayEng": [],
+    "sensesEng": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "test-mediaId-0",
+  "startSecThai": 0.0,
+  "endSecThai": 5.0,
+  "startSecEng": null,
+  "endSecEng": null,
+  "thai": "รถ",
+  "english": "",
+  "wordReferenceIdsThai": ["รถ:0"],
+  "wordReferenceIdsEng": [],
+  "tokens": {
+    "display": [
+      {
+        "index": 0,
+        "thaiScript": "รถ",
+        "g2p": null,
+        "englishPhonetic": null
+      }
+    ],
+    "senses": [
+      {
+        "index": 0,
+        "senses": []
+      }
+    ],
+    "displayEng": [],
+    "sensesEng": []
+  }
+}

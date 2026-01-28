@@ -1,0 +1,29 @@
+{
+  "id": false,
+  "startSecThai": false,
+  "endSecThai": false,
+  "startSecEng": false,
+  "endSecEng": false,
+  "thai": false,
+  "english": false,
+  "wordReferenceIdsThai": false,
+  "wordReferenceIdsEng": false,
+  "tokens": {
+    "display": [
+      {
+        "index": false,
+        "thaiScript": false,
+        "g2p": true,
+        "englishPhonetic": true
+      }
+    ],
+    "senses": [
+      {
+        "index": false,
+        "senses": true
+      }
+    ],
+    "displayEng": [],
+    "sensesEng": []
+  }
+}

@@ -3,16 +3,14 @@
   "name": "Smart Subs",
   "version": "0.1.0",
   "description": "Edit and enhance Netflix subtitles for language learning",
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'"
-  },
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "scripting"
   ],
   "host_permissions": [
     "https://www.netflix.com/*",
-    "https://api.airtable.com/*",
+    "https://dictionary.orst.go.th/*",
     "https://api.aiforthai.in.th/*"
   ],
   "background": {
@@ -20,26 +18,9 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.netflix.com/watch/*"],
+      "matches": ["https://www.netflix.com/*"],
       "js": ["content.js"],
-      "css": ["content.css"],
       "run_at": "document_idle"
-    }
-  ],
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "Smart Subs"
-  },
-  "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
-  },
-  "web_accessible_resources": [
-    {
-      "resources": ["content.css", "netflixSeekBridge.js", "thaiDb.json", "dict.txt"],
-      "matches": ["https://www.netflix.com/*"]
     }
   ]
 }
-

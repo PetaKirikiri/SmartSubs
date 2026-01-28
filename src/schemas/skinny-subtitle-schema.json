@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Skinny Subtitle Schema",
+  "description": "Source of truth for skinny subtitle structure - after tokenization, has word references but NO token data",
+  "type": "object",
+  "required": ["id", "wordReferenceIdsThai", "wordReferenceIdsEng"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique subtitle identifier"
+    },
+    "startSecThai": {
+      "type": ["number", "null"],
+      "description": "Thai subtitle start time in seconds"
+    },
+    "endSecThai": {
+      "type": ["number", "null"],
+      "description": "Thai subtitle end time in seconds"
+    },
+    "startSecEng": {
+      "type": ["number", "null"],
+      "description": "English subtitle start time in seconds"
+    },
+    "endSecEng": {
+      "type": ["number", "null"],
+      "description": "English subtitle end time in seconds"
+    },
+    "thai": {
+      "type": "string",
+      "description": "Thai subtitle text"
+    },
+    "english": {
+      "type": "string",
+      "description": "English subtitle text"
+    },
+    "wordReferenceIdsThai": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of Thai word references (populated after tokenization)",
+      "minItems": 0
+    },
+    "wordReferenceIdsEng": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of English word references (populated after tokenization)",
+      "minItems": 0
+    }
+  },
+  "not": {
+    "properties": {
+      "tokens": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": false
+}

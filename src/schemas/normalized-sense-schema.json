@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Normalized Sense Schema",
+  "description": "Source of truth for normalized sense structure (standardized format)",
+  "type": "object",
+  "required": ["normalized"],
+  "properties": {
+    "id": {
+      "type": ["number", "string"],
+      "description": "Sense identifier"
+    },
+    "index": {
+      "type": "number",
+      "description": "Sense index in array"
+    },
+    "selected": {
+      "type": "boolean",
+      "description": "Whether this sense is selected for the token",
+      "default": false
+    },
+    "thaiWord": {
+      "type": "string",
+      "description": "Thai word (cleaned, no comma-separated values)"
+    },
+    "senseNumber": {
+      "type": "string",
+      "description": "Sense number (e.g., '1', '2')"
+    },
+    "pos": {
+      "type": "string",
+      "description": "Part of speech (Thai abbreviation)"
+    },
+    "posEnglish": {
+      "type": "string",
+      "description": "Part of speech in English"
+    },
+    "meaningThai": {
+      "type": "string",
+      "description": "Compact gloss in Thai (English/Thai pair)"
+    },
+    "meaningEnglish": {
+      "type": "string",
+      "description": "Compact gloss in English (English/Thai pair)"
+    },
+    "descriptionThai": {
+      "type": "string",
+      "description": "Short clarification in Thai"
+    },
+    "descriptionEnglish": {
+      "type": "string",
+      "description": "Short clarification in English (REQUIRED for normalized sense)"
+    },
+    "source": {
+      "type": "string",
+      "description": "Source of sense data (ORST, GPT, etc.)",
+      "default": "ORST"
+    },
+    "normalized": {
+      "type": "boolean",
+      "description": "Must be true for normalized sense",
+      "const": true
+    },
+    "normalizedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO timestamp when sense was normalized"
+    },
+    "normalizationVersion": {
+      "type": "string",
+      "description": "Version of normalization schema used",
+      "default": "1.0"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence score for normalization (0-1)"
+    },
+    "originalData": {
+      "type": "object",
+      "description": "Preserved original ORST data for reference",
+      "properties": {
+        "definition": {
+          "type": "string"
+        },
+        "pos": {
+          "type": "string"
+        },
+        "senseNumber": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

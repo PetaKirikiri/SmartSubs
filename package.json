@@ -6,21 +6,25 @@
   "scripts": {
     "create-icons": "node scripts/create-icons.js",
     "dev": "npm run create-icons && vite build --watch",
-    "build": "npm run create-icons && vite build"
+    "build": "npm run create-icons && npm run build:scripts",
+    "build:scripts": "node build-scripts.js",
+    "test": "vitest",
+    "test:integration": "vitest tests/integration",
+    "test:smoke": "vitest tests/smoke",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
-    "@dehoist/romanize-thai": "^1.0.0",
-    "airtable": "^0.12.2",
+    "firebase": "^12.7.0",
     "openai": "^6.9.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "thai-cut-slim": "^1.2.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.0",
     "@vitejs/plugin-react": "^4.2.1",
-    "sax": "^1.4.3",
+    "esbuild": "^0.19.0",
     "tailwindcss": "^4.1.0",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "vitest": "^1.6.1"
   }
 }

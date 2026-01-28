@@ -1,0 +1,241 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Fat Subtitle Schema",
+  "description": "Source of truth for fat subtitle structure - complete with word references AND token data",
+  "type": "object",
+  "required": ["id", "wordReferenceIdsThai", "wordReferenceIdsEng", "tokens"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique subtitle identifier"
+    },
+    "startSecThai": {
+      "type": ["number", "null"],
+      "description": "Thai subtitle start time in seconds"
+    },
+    "endSecThai": {
+      "type": ["number", "null"],
+      "description": "Thai subtitle end time in seconds"
+    },
+    "startSecEng": {
+      "type": ["number", "null"],
+      "description": "English subtitle start time in seconds"
+    },
+    "endSecEng": {
+      "type": ["number", "null"],
+      "description": "English subtitle end time in seconds"
+    },
+    "thai": {
+      "type": "string",
+      "description": "Thai subtitle text"
+    },
+    "english": {
+      "type": "string",
+      "description": "English subtitle text"
+    },
+    "wordReferenceIdsThai": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of Thai word references",
+      "minItems": 0
+    },
+    "wordReferenceIdsEng": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of English word references",
+      "minItems": 0
+    },
+    "smartSubsRefs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of smart subtitle references in format ${mediaId}-${subtitleIndex}-${tokenIndex}",
+      "minItems": 0
+    },
+    "matchedWords": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "thaiWord": {
+            "type": "string"
+          },
+          "englishWord": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "key": {
+            "type": "string"
+          }
+        },
+        "required": ["thaiWord", "englishWord", "confidence"]
+      },
+      "description": "Array of word matches between Thai and English subtitles",
+      "minItems": 0
+    },
+    "tokens": {
+      "type": "object",
+      "required": ["displayThai", "sensesThai", "displayEnglish", "sensesEnglish"],
+      "properties": {
+        "displayThai": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/displayToken"
+          },
+          "description": "Thai display tokens array - length must match wordReferenceIdsThai.length"
+        },
+        "sensesThai": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/senseToken"
+          },
+          "description": "Thai sense tokens array - length must match wordReferenceIdsThai.length"
+        },
+        "displayEnglish": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/displayEngToken"
+          },
+          "description": "English display tokens array - length must match wordReferenceIdsEng.length"
+        },
+        "sensesEnglish": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/senseEngToken"
+          },
+          "description": "English sense tokens array - length must match wordReferenceIdsEng.length"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "definitions": {
+    "displayToken": {
+      "type": "object",
+      "required": ["index", "thaiScript"],
+      "properties": {
+        "index": {
+          "type": "number",
+          "description": "Token index matching wordReferenceIdsThai position"
+        },
+        "thaiScript": {
+          "type": "string",
+          "description": "Thai word script"
+        },
+        "g2p": {
+          "type": ["string", "null"],
+          "description": "Grapheme-to-phoneme conversion"
+        },
+        "englishPhonetic": {
+          "type": ["string", "null"],
+          "description": "English phonetic representation"
+        }
+      }
+    },
+    "senseToken": {
+      "type": "object",
+      "required": ["index", "senses"],
+      "properties": {
+        "index": {
+          "type": "number",
+          "description": "Token index matching wordReferenceIdsThai position"
+        },
+        "senses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/normalizedSense"
+          },
+          "description": "Array of sense objects for this token"
+        }
+      }
+    },
+    "displayEngToken": {
+      "type": "object",
+      "required": ["index", "englishWord"],
+      "properties": {
+        "index": {
+          "type": "number"
+        },
+        "englishWord": {
+          "type": "string"
+        }
+      }
+    },
+    "senseEngToken": {
+      "type": "object",
+      "required": ["index", "senses"],
+      "properties": {
+        "index": {
+          "type": "number"
+        },
+        "senses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/normalizedSense"
+          }
+        }
+      }
+    },
+    "normalizedSense": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": ["number", "string"]
+        },
+        "index": {
+          "type": "number"
+        },
+        "selected": {
+          "type": "boolean"
+        },
+        "thaiWord": {
+          "type": "string"
+        },
+        "senseNumber": {
+          "type": "string"
+        },
+        "pos": {
+          "type": "string"
+        },
+        "posEnglish": {
+          "type": "string"
+        },
+        "meaningThai": {
+          "type": "string"
+        },
+        "meaningEnglish": {
+          "type": "string"
+        },
+        "descriptionThai": {
+          "type": "string"
+        },
+        "descriptionEnglish": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "normalizedAt": {
+          "type": "string"
+        },
+        "normalizationVersion": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number"
+        },
+        "originalData": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

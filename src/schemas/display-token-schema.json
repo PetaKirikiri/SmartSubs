@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Display Token Schema",
+  "description": "Source of truth for display token structure (Thai tokens)",
+  "type": "object",
+  "required": ["index", "thaiScript"],
+  "properties": {
+    "index": {
+      "type": "number",
+      "description": "Token index matching wordReferenceIdsThai position"
+    },
+    "thaiScript": {
+      "type": "string",
+      "description": "Thai word script (may contain comma-separated values, use first value)"
+    },
+    "g2p": {
+      "type": ["string", "null"],
+      "description": "Grapheme-to-phoneme conversion (Thai phonetic representation)"
+    },
+    "englishPhonetic": {
+      "type": ["string", "null"],
+      "description": "English phonetic representation (derived from G2P)"
+    }
+  },
+  "additionalProperties": false
+}
